@@ -1,14 +1,16 @@
 # Prueba-MediPiel
 
-## Instalación de dependencias
+## API Externa
 
-Usa el manejador de paquetes de NPM para instalar dependencias
+### Instalación de dependencias
+
+Usa el manejador de paquetes de Node.js para instalar dependencias
 
 ```
 npm install
 ```
 
-## Inicializar el Servidor
+### Inicializar el Servidor
 
 Usa el script para levantar el servidor de la API
 
@@ -16,21 +18,21 @@ Usa el script para levantar el servidor de la API
 npm run dev
 ```
 
-## Endpoints
+### Endpoints
 
-### Obtener lista de productos
+#### Obtener lista de productos
 
 `GET /products`
 
 Devuelve una lista de los productos existentes en la BD.
 
-### Obtener lista del inventario
+#### Obtener lista del inventario
 
 `GET /products/stock`
 
 Devuelve una lista que muestra Nombre del producto y su Stock.
 
-### Crear una Orden
+#### Crear una Orden
 
 `POST /orders`
 
@@ -49,14 +51,14 @@ Calcula automáticamente el monto total basándose en los precios vigentes en la
 }
 ```
 
-### Consultar una Orden por Id
+#### Consultar una Orden por Id
 
 `GET /orders/:order_id`
 
 Devuelve la información completa de una Orden específica, incluyendo los datos generales
 y el listado detallado de productos adquiridos mediante un `INNER JOIN`.
 
-### Actualizar el estado de Orden
+#### Actualizar el estado de Orden
 
 `PATCH /orders/:order_id`
 
@@ -74,3 +76,5 @@ Estados permitidos: pending, confirmed, rejected
   "status": "confirmed"
 }
 ```
+
+## Servicio Integrador

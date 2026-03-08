@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import productsRoutes from "./routes/products.js";
+import ordersRoutes from "./routes/orders.js";
 dotenv.config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 
 //RUTAS
 app.use("/products", productsRoutes);
+app.use("/orders", ordersRoutes);
 
 app.listen(PORT, () => {
   console.log(`El servidor está corriendo en el puerto ${PORT}`);

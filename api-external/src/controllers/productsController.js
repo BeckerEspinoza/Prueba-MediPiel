@@ -1,6 +1,6 @@
 import pool from "../db/config.js";
 
-// Obtiene lista de nombres de productos.
+// Obtiene lista de los productos.
 export const getNameProducts = async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM products ORDER BY product_id ASC");

@@ -141,3 +141,33 @@ export const updateOrderStatus = async (req, res) => {
     });
   }
 };
+
+export const ordersSummary = async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT o.status, COUNT(o.order_id) AS total_orders, SUM(oi.quantity) AS total_pieces, SUM(o.total_amount) AS total_amount
+      FROM orders o
+      INNER JOIN order_items oi
+      ON o.order_id = oi.order_id
+      GROUP BY o.status`,
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No se pudo obtener el resumen.",
+      });
+    }
+    console.log(result.rows);
+    return res.status(200).json({
+      success: true,
+      data: result.rows,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Hubo un error.",
+      error: error.message,
+    });
+  }
+};

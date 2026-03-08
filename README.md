@@ -24,11 +24,20 @@ ambos conectados a una base de datos PostgreSQL.
 
 ## Base de datos
 
+### Requisitos
+
+- PostgreSQL 18
+- pgAdmin 4
+
 ### Crear e inicializar la base de datos
 
-```bash
-psql -U tu_usuario -d tu_base -f sql/medipiel.sql
-```
+1. Abre **pgAdmin 4** y conéctate a tu servidor PostgreSQL
+2. Click derecho en **Databases** → **Create** → **Database**
+3. Asigna el nombre `medipiel` y guarda
+4. Click derecho sobre la base de datos `medipiel` → **Restore**
+5. En el campo **Format** selecciona `plain`
+6. En el campo **Filename** selecciona el archivo `sql/medipiel.sql`
+7. Click en **Restore**
 
 El script crea las siguientes tablas con sus relaciones, índices y datos de ejemplo:
 

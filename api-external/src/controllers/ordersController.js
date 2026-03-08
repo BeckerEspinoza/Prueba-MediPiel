@@ -158,7 +158,6 @@ export const ordersSummary = async (req, res) => {
         message: "No se pudo obtener el resumen.",
       });
     }
-    console.log(result.rows);
     return res.status(200).json({
       success: true,
       data: result.rows,

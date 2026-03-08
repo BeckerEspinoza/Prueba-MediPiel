@@ -21,7 +21,7 @@ export const getNameProducts = async (req, res) => {
 // Obtiene lista de stock de productos.
 export const getStockProducts = async (req, res) => {
   try {
-    const result = await pool.query("SELECT product_name, stock FROM products ORDER BY product_id ASC");
+    const result = await pool.query("SELECT product_id, product_name, stock FROM products ORDER BY product_id ASC");
     return res.status(200).json({
       success: true,
       data: result.rows,
